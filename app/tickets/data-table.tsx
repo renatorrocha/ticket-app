@@ -1,3 +1,4 @@
+import TicketPriority from "@/components/ticket-priority";
 import TicketStatusBadge from "@/components/ticket-status-badge";
 import {
   Table,
@@ -26,7 +27,9 @@ export default function DataTable({ tickets }: Props) {
                 <div className="flex justify-center">Status</div>
               </TableHead>
 
-              <TableHead>Priority</TableHead>
+              <TableHead>
+                <div className="flex justify-center">Priority</div>
+              </TableHead>
 
               <TableHead>Created At</TableHead>
             </TableRow>
@@ -44,7 +47,11 @@ export default function DataTable({ tickets }: Props) {
                       </div>
                     </TableCell>
 
-                    <TableCell>{ticket.priority}</TableCell>
+                    <TableCell>
+                      <div className="flex justify-center">
+                        <TicketPriority priority={ticket.priority} />
+                      </div>
+                    </TableCell>
 
                     <TableCell>
                       {ticket.createdAt.toLocaleDateString("en-US", {
