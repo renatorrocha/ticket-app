@@ -9,3 +9,5 @@ export const ticketSchema = z.object({
 
   priority: z.string().min(1, "Priority is required").max(10).optional(),
 });
+
+export type TicketFormData = z.infer<typeof ticketSchema>;
