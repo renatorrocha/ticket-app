@@ -1,3 +1,4 @@
+import TicketStatusBadge from "@/components/ticket-status-badge";
 import {
   Table,
   TableBody,
@@ -21,7 +22,9 @@ export default function DataTable({ tickets }: Props) {
             <TableRow>
               <TableHead>Title</TableHead>
 
-              <TableHead>Status</TableHead>
+              <TableHead>
+                <div className="flex justify-center">Status</div>
+              </TableHead>
 
               <TableHead>Priority</TableHead>
 
@@ -35,7 +38,11 @@ export default function DataTable({ tickets }: Props) {
                   <TableRow key={ticket.id} data-href="/">
                     <TableCell>{ticket.title}</TableCell>
 
-                    <TableCell>{ticket.status}</TableCell>
+                    <TableCell>
+                      <div className="flex justify-center">
+                        <TicketStatusBadge status={ticket.status} />
+                      </div>
+                    </TableCell>
 
                     <TableCell>{ticket.priority}</TableCell>
 
