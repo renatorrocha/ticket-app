@@ -12,6 +12,7 @@ import {
 import { Ticket } from "@prisma/client";
 import Link from "next/link";
 import ReactMarkDown from "react-markdown";
+import DeleteButton from "./delete-button";
 
 interface Props {
   ticket: Ticket;
@@ -68,12 +69,7 @@ export default function TicketDetail({ ticket }: Props) {
           Edit Ticket
         </Link>
 
-        <Link
-          href={`/tickets/edit/${ticket.id}`}
-          className={`${buttonVariants({ variant: "destructive" })}`}
-        >
-          Delete Ticket
-        </Link>
+        <DeleteButton ticketId={ticket.id} />
       </div>
     </div>
   );
