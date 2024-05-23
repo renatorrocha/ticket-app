@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Ticket } from "@prisma/client";
 import Link from "next/link";
+import ReactMarkDown from "react-markdown";
 
 interface Props {
   ticket: Ticket;
@@ -42,7 +43,9 @@ export default function TicketDetail({ ticket }: Props) {
           </CardDescription>
         </CardHeader>
 
-        <CardContent>{ticket.description}</CardContent>
+        <CardContent className="prose dark:prose-invert">
+          <ReactMarkDown>{ticket.description}</ReactMarkDown>
+        </CardContent>
 
         <CardFooter>
           Updated:{" "}
