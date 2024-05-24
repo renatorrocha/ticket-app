@@ -19,6 +19,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Ticket } from "@prisma/client";
+import { LoaderCircle } from "lucide-react";
 
 interface Props {
   ticket?: Ticket;
@@ -147,7 +148,12 @@ export default function TicketForm({ ticket }: Props) {
             />
           </div>
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="flex gap-2 items-center justify-between"
+          >
+            {isSubmitting && <LoaderCircle className="animate-spin" />}
             {ticket ? "Update Ticket" : "Create Ticket"}
           </Button>
         </form>
