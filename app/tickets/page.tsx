@@ -15,6 +15,8 @@ export default async function TicketsPage({
   const pageSize = 10;
   const page = parseInt(searchParams.page) || 1;
 
+  const orderBy = searchParams.orderBy ? searchParams.orderBy : "createdAt";
+
   const statuses = Object.values(Status);
 
   const status = statuses.includes(searchParams.status)
@@ -37,6 +39,9 @@ export default async function TicketsPage({
 
   const tickets = await prisma.ticket.findMany({
     where,
+    orderBy: {
+      [orderBy]: "desc",
+    },
     take: pageSize,
     skip: (page - 1) * pageSize,
   });
