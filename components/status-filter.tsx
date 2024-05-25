@@ -37,7 +37,7 @@ export default function StatusFilter() {
       defaultValue={searchParams.get("status") || ""}
       onValueChange={(status) => handleStatusChange(status)}
     >
-      <SelectTrigger>
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Filter by Status..." />
       </SelectTrigger>
 
