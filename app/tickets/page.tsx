@@ -5,11 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import Pagination from "@/components/pagination";
 import StatusFilter from "@/components/status-filter";
 import { Status } from "@prisma/client";
-
-interface SearchParams {
-  status: Status;
-  page: string;
-}
+import { SearchParams } from "@/types/search-params";
 
 export default async function TicketsPage({
   searchParams,
@@ -58,7 +54,8 @@ export default async function TicketsPage({
         <StatusFilter />
       </div>
 
-      <DataTable tickets={tickets} />
+      <DataTable tickets={tickets} searchParams={searchParams} />
+
       <Pagination
         itemCount={ticketCount}
         pageSize={pageSize}
