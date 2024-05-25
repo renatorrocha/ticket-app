@@ -3,6 +3,7 @@ import DataTable from "./data-table";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import Pagination from "@/components/pagination";
+import StatusFilter from "@/components/status-filter";
 
 interface SearchParams {
   page: string;
@@ -30,6 +31,8 @@ export default async function TicketsPage({
       >
         New Ticket
       </Link>
+
+      <StatusFilter />
 
       <DataTable tickets={tickets} />
       <Pagination
